@@ -5,6 +5,7 @@ export type AppRecord = {
   service: string;
   productionUrl: string;
   previewUrl: string;
+  description: string;
 };
 
 export type SecretRecord = {
