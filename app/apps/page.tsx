@@ -8,6 +8,9 @@ export default async function AppsPage() {
     <>
       <PageTitle eyebrow="Apps" title="アプリごとのRepositoryとDeployment。" />
       <ActionNote>ここは確認画面です。新しく追加する場合は上部メニューの「追加」を使います。編集は各Appの詳細画面で行います。</ActionNote>
+      {data.source === "demo" ? (
+        <ActionNote>現在はデモデータを表示しています。Google Sheetsの接続情報をVercelに設定すると、台帳シートの内容に切り替わります。</ActionNote>
+      ) : null}
       {data.apps.length ? (
         <Grid>
           {data.apps.map((app) => (
