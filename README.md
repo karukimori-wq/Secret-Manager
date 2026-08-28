@@ -32,7 +32,11 @@ Only these five sheets are used:
 ```bash
 GOOGLE_SHEETS_SPREADSHEET_ID=
 GOOGLE_SHEETS_API_KEY=
+GOOGLE_SERVICE_ACCOUNT_EMAIL=
+GOOGLE_SERVICE_ACCOUNT_PRIVATE_KEY=
 ```
+
+`GOOGLE_SHEETS_API_KEY` can read a public sheet. For reliable read/write/delete behavior, use the Service Account variables and share the spreadsheet with that service account email.
 
 When the variables are missing, the app shows safe demo data so the UI can be reviewed without touching real records.
 

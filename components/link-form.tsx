@@ -35,3 +35,28 @@ export function LinkForm({ parentType, parentId }: { parentType: "app" | "secret
     </form>
   );
 }
+
+export function DeleteLinkButton({ parentType, parentId, title, url }: { parentType: "app" | "secret" | "service"; parentId: string; title: string; url: string }) {
+  const router = useRouter();
+  const [message, setMessage] = useState("");
+
+  async function remove() {
+    setMessage("削除中...");
+    const response = await fetch("/api/links", {
+      method: "DELETE",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({ parentType, parentId, title, url }),
+    });
+    setMessage(response.ok ? "削除しました。" : "削除に失敗しました。");
+    if (response.ok) router.refresh();
+  }
+
+  return (
+    <div className="mt-2">
+      <button type="button" onClick={remove} className="rounded-md border border-[var(--line)] px-3 py-1 text-xs font-semibold text-[var(--muted)]">
+        削除
+      </button>
+      {message ? <span className="ml-2 text-xs text-[var(--muted)]">{message}</span> : null}
+    </div>
+  );
+}

@@ -1,4 +1,4 @@
-import { LinkForm } from "@/components/link-form";
+import { DeleteLinkButton, LinkForm } from "@/components/link-form";
 import { Card, EmptyState, Field, Grid, PageTitle } from "@/components/ui";
 import { appsForSecret, byId, linksFor } from "@/lib/catalog";
 import { getCatalogData } from "@/lib/google-sheets";
@@ -28,7 +28,7 @@ export default async function SecretDetail({ params }: { params: Promise<{ id: s
       </div>
       <section className="mt-7">
         <h2 className="mb-3 text-xl font-bold">関連リンク</h2>
-        {links.length ? <Grid>{links.map((link) => <Card key={`${link.title}-${link.url}`} href={link.url} icon="🔗" title={link.title}>{link.url}</Card>)}</Grid> : <EmptyState label="関連リンクは未登録です。" />}
+        {links.length ? <Grid>{links.map((link) => <Card key={`${link.title}-${link.url}`} icon="🔗" title={link.title}><a className="break-all underline" href={link.url} target="_blank" rel="noreferrer">{link.url}</a><DeleteLinkButton parentType="secret" parentId={secret.id} title={link.title} url={link.url} /></Card>)}</Grid> : <EmptyState label="関連リンクは未登録です。" />}
         <LinkForm parentType="secret" parentId={secret.id} />
       </section>
     </>
