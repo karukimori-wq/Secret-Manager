@@ -18,6 +18,7 @@ export default async function AppDetail({ params }: { params: Promise<{ id: stri
       <PageTitle eyebrow="App" title={`${icons.app} ${app.name}`} />
       <div className="grid gap-6 lg:grid-cols-[1fr_320px]">
         <section className="rounded-lg border border-[var(--line)] bg-[var(--card)] p-5">
+          <Field label="説明" value={app.description} />
           <Field label="Repository" value={app.repository} />
           <Field label="GitHubリンク" value={app.repository} />
           <Field label="Production URL" value={app.productionUrl} />
