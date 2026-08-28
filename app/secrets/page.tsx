@@ -1,3 +1,4 @@
+import { SecretForm } from "@/components/record-forms";
 import { Card, EmptyState, Grid, PageTitle } from "@/components/ui";
 import { getCatalogData } from "@/lib/google-sheets";
 import { icons } from "@/lib/types";
@@ -7,6 +8,7 @@ export default async function SecretsPage() {
   return (
     <>
       <PageTitle eyebrow="Secrets" title="Secret値ではなく、名前と置き場所だけ。" />
+      <SecretForm />
       {data.secrets.length ? (
         <Grid>
           {data.secrets.map((secret) => (

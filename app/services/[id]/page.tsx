@@ -1,4 +1,5 @@
 import { DeleteLinkButton, LinkForm } from "@/components/link-form";
+import { RelationForm } from "@/components/record-forms";
 import { Card, EmptyState, Field, Grid, PageTitle } from "@/components/ui";
 import { appsForService, byId, linksFor } from "@/lib/catalog";
 import { getCatalogData } from "@/lib/google-sheets";
@@ -21,6 +22,7 @@ export default async function ServiceDetail({ params }: { params: Promise<{ id: 
       <section className="mt-7">
         <h2 className="mb-3 text-xl font-bold">関連App</h2>
         {apps.length ? <Grid>{apps.map((app) => <Card key={app.id} href={`/apps/${app.id}`} icon={icons.app} title={app.name}>{app.productionUrl}</Card>)}</Grid> : <EmptyState label="関連Appは未登録です。" />}
+        <RelationForm fromId={service.id} defaultRelation="used_by" options={data.apps.map((app) => ({ id: app.id, name: app.name }))} />
       </section>
       <section className="mt-7">
         <h2 className="mb-3 text-xl font-bold">関連リンク</h2>

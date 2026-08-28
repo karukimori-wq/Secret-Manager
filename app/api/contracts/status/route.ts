@@ -6,6 +6,7 @@ export async function GET() {
     databaseUsed: false,
     dataStore: "google-sheets",
     fixedSheets: ["Apps", "Secrets", "Services", "Relations", "Links"],
+    writableResources: ["Apps", "Secrets", "Services", "Relations", "Links"],
     apiSync: {
       github: false,
       vercel: false,

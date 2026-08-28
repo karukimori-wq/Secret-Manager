@@ -1,3 +1,4 @@
+import { AppForm } from "@/components/record-forms";
 import { Card, EmptyState, Grid, PageTitle } from "@/components/ui";
 import { getCatalogData } from "@/lib/google-sheets";
 import { icons } from "@/lib/types";
@@ -7,6 +8,7 @@ export default async function AppsPage() {
   return (
     <>
       <PageTitle eyebrow="Apps" title="アプリごとのRepositoryとDeployment。" />
+      <AppForm />
       {data.apps.length ? (
         <Grid>
           {data.apps.map((app) => (

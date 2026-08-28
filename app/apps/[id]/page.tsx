@@ -1,4 +1,5 @@
 import { DeleteLinkButton, LinkForm } from "@/components/link-form";
+import { RelationForm } from "@/components/record-forms";
 import { Card, EmptyState, Field, Grid, PageTitle } from "@/components/ui";
 import { byId, linksFor, secretsForApp } from "@/lib/catalog";
 import { getCatalogData } from "@/lib/google-sheets";
@@ -28,6 +29,7 @@ export default async function AppDetail({ params }: { params: Promise<{ id: stri
           {secrets.length ? (
             <div className="grid gap-3">{secrets.map((secret) => <Card key={secret.id} href={`/secrets/${secret.id}`} icon={icons.secret} title={secret.name}>{secret.storage}</Card>)}</div>
           ) : <EmptyState label="関連Secretは未登録です。" />}
+          <RelationForm fromId={app.id} defaultRelation="uses" options={data.secrets.map((secret) => ({ id: secret.id, name: secret.name }))} />
         </aside>
       </div>
       <section className="mt-7">
