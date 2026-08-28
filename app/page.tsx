@@ -18,9 +18,11 @@ export default async function Home() {
         </div>
       </PageTitle>
       <Grid>
+        <Card href="/add" icon="＋" title="追加記録">新しいApp、Secret、Serviceを登録します。</Card>
         <Card href="/apps" icon={icons.app} title="Apps">Repository、Deployment、利用Service、利用Secretをまとめます。</Card>
         <Card href="/secrets" icon={icons.secret} title="Secrets">Secret名、説明、保存場所、所有者、関連リンクだけを扱います。</Card>
         <Card href="/services" icon={icons.service} title="Services">Vercel、Cloudflare、Google Sheetsなど設定先を整理します。</Card>
+        <Card href="/search" icon="⌕" title="確認・検索">名前、Repository、URL、Serviceを横断して探します。</Card>
       </Grid>
       <section className="mt-8">
         <h2 className="mb-3 text-xl font-bold">最近更新</h2>
