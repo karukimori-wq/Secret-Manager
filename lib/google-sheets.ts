@@ -110,6 +110,26 @@ export async function appendRow(sheet: SheetName, row: string[]) {
   return { ok: response.ok, reason: response.ok ? undefined : await response.text() };
 }
 
+export async function updateRowById(sheet: "Apps" | "Secrets" | "Services", id: string, row: string[]) {
+  const { spreadsheetId } = env();
+  const client = await sheetsClient();
+  if (!client || !spreadsheetId) {
+    return { ok: false, reason: "Google Sheets update requires Service Account environment variables." };
+  }
+  const response = await client.spreadsheets.values.get({ spreadsheetId, range: `${sheet}!A:A` });
+  const rows = response.data.values ?? [];
+  const rowIndex = rows.findIndex((entry, index) => index > 0 && entry[0] === id);
+  if (rowIndex < 1) return { ok: false, reason: `${sheet} row was not found.` };
+  const endColumn = String.fromCharCode("A".charCodeAt(0) + row.length - 1);
+  await client.spreadsheets.values.update({
+    spreadsheetId,
+    range: `${sheet}!A${rowIndex + 1}:${endColumn}${rowIndex + 1}`,
+    valueInputOption: "USER_ENTERED",
+    requestBody: { values: [row] },
+  });
+  return { ok: true };
+}
+
 async function sheetIdFor(sheet: SheetName) {
   const { spreadsheetId } = env();
   const client = await sheetsClient();

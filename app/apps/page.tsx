@@ -1,5 +1,4 @@
-import { AppForm } from "@/components/record-forms";
-import { Card, EmptyState, Grid, PageTitle } from "@/components/ui";
+import { ActionNote, Card, EmptyState, Grid, PageTitle } from "@/components/ui";
 import { getCatalogData } from "@/lib/google-sheets";
 import { icons } from "@/lib/types";
 
@@ -8,7 +7,7 @@ export default async function AppsPage() {
   return (
     <>
       <PageTitle eyebrow="Apps" title="アプリごとのRepositoryとDeployment。" />
-      <AppForm />
+      <ActionNote>ここは確認画面です。新しく追加する場合は上部メニューの「追加」を使います。編集は各Appの詳細画面で行います。</ActionNote>
       {data.apps.length ? (
         <Grid>
           {data.apps.map((app) => (

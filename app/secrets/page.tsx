@@ -1,5 +1,4 @@
-import { SecretForm } from "@/components/record-forms";
-import { Card, EmptyState, Grid, PageTitle } from "@/components/ui";
+import { ActionNote, Card, EmptyState, Grid, PageTitle } from "@/components/ui";
 import { getCatalogData } from "@/lib/google-sheets";
 import { icons } from "@/lib/types";
 
@@ -8,7 +7,7 @@ export default async function SecretsPage() {
   return (
     <>
       <PageTitle eyebrow="Secrets" title="Secret値ではなく、名前と置き場所だけ。" />
-      <SecretForm />
+      <ActionNote>ここは確認画面です。Secretを追加する場合は上部メニューの「追加」を使います。編集は各Secretの詳細画面で行います。</ActionNote>
       {data.secrets.length ? (
         <Grid>
           {data.secrets.map((secret) => (

@@ -1,5 +1,5 @@
 import { DeleteLinkButton, LinkForm } from "@/components/link-form";
-import { RelationForm } from "@/components/record-forms";
+import { RelationForm, SecretEditForm } from "@/components/record-forms";
 import { Card, EmptyState, Field, Grid, PageTitle } from "@/components/ui";
 import { appsForSecret, byId, linksFor } from "@/lib/catalog";
 import { getCatalogData } from "@/lib/google-sheets";
@@ -21,6 +21,7 @@ export default async function SecretDetail({ params }: { params: Promise<{ id: s
           <Field label="説明" value={secret.description} />
           <Field label="所有App" value={secret.owner} />
           <Field label="保存場所" value={secret.storage} />
+          <SecretEditForm secret={secret} />
         </section>
         <aside>
           <h2 className="mb-3 font-bold">利用App</h2>

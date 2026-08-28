@@ -5,6 +5,7 @@ import { icons } from "@/lib/types";
 export function Shell({ children }: { children: ReactNode }) {
   const nav = [
     ["Home", "/"],
+    ["追加", "/add"],
     ["Apps", "/apps"],
     ["Secrets", "/secrets"],
     ["Services", "/services"],
@@ -84,4 +85,8 @@ export function EmptyState({ label }: { label: string }) {
 
 export function SourceBadge({ source }: { source: "google-sheets" | "demo" }) {
   return <span className="rounded-full bg-[#e8e1cf] px-3 py-1 text-xs font-semibold">{source === "google-sheets" ? "Google Sheets接続中" : "デモデータ表示中"}</span>;
+}
+
+export function ActionNote({ children }: { children: ReactNode }) {
+  return <div className="mb-5 rounded-lg border border-[#b7d4d2] bg-[#edf7f5] px-4 py-3 text-sm text-[#225f63]">{children}</div>;
 }

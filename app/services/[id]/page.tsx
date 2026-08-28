@@ -1,5 +1,5 @@
 import { DeleteLinkButton, LinkForm } from "@/components/link-form";
-import { RelationForm } from "@/components/record-forms";
+import { RelationForm, ServiceEditForm } from "@/components/record-forms";
 import { Card, EmptyState, Field, Grid, PageTitle } from "@/components/ui";
 import { appsForService, byId, linksFor } from "@/lib/catalog";
 import { getCatalogData } from "@/lib/google-sheets";
@@ -18,6 +18,7 @@ export default async function ServiceDetail({ params }: { params: Promise<{ id: 
       <PageTitle eyebrow="Service" title={`${icons.service} ${service.name}`} />
       <section className="rounded-lg border border-[var(--line)] bg-[var(--card)] p-5">
         <Field label="説明" value={service.description} />
+        <ServiceEditForm service={service} />
       </section>
       <section className="mt-7">
         <h2 className="mb-3 text-xl font-bold">関連App</h2>

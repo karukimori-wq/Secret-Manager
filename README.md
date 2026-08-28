@@ -7,12 +7,14 @@ It never stores secret values. It stores only names, purpose, descriptions, loca
 ## MVP Scope
 
 - Home
+- Add page
 - Apps list and detail
 - Secrets list and detail
 - Services list and detail
 - Search across Secret, App, Service, Repository, and URL
 - Settings page for Google Sheets connection status
 - Add Apps, Secrets, and Services from the UI
+- Edit Apps, Secrets, and Services from detail pages
 - Add manual Relations from detail pages
 - Related links management
 - Google Sheets fixed five-sheet storage
