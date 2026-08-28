@@ -49,6 +49,7 @@ function useUpdate(endpoint: string) {
 
 export function AppForm() {
   const [name, setName] = useState("");
+  const [description, setDescription] = useState("");
   const [repository, setRepository] = useState("");
   const [service, setService] = useState("");
   const [productionUrl, setProductionUrl] = useState("");
@@ -59,8 +60,9 @@ export function AppForm() {
     <form
       onSubmit={(event) => {
         event.preventDefault();
-        submit({ id: slugify(name, "app"), name, repository, service, productionUrl, previewUrl }, () => {
+        submit({ id: slugify(name, "app"), name, repository, service, productionUrl, previewUrl, description }, () => {
           setName("");
+          setDescription("");
           setRepository("");
           setService("");
           setProductionUrl("");
@@ -71,6 +73,7 @@ export function AppForm() {
     >
       <div className="font-bold">Appを追加</div>
       <input className="rounded-md border border-[var(--line)] bg-white px-3 py-2" placeholder="名前" value={name} onChange={(event) => setName(event.target.value)} required />
+      <textarea className="min-h-20 rounded-md border border-[var(--line)] bg-white px-3 py-2" placeholder="説明 例: 何をするためのアプリか" value={description} onChange={(event) => setDescription(event.target.value)} />
       <input className="rounded-md border border-[var(--line)] bg-white px-3 py-2" placeholder="Repository URL" value={repository} onChange={(event) => setRepository(event.target.value)} />
       <input className="rounded-md border border-[var(--line)] bg-white px-3 py-2" placeholder="Service 例: Vercel" value={service} onChange={(event) => setService(event.target.value)} />
       <input className="rounded-md border border-[var(--line)] bg-white px-3 py-2" placeholder="Production URL" value={productionUrl} onChange={(event) => setProductionUrl(event.target.value)} />
@@ -171,17 +174,19 @@ export function RelationForm({ fromId, defaultRelation, options }: { fromId: str
   );
 }
 
-export function AppEditForm({ app }: { app: { id: string; name: string; repository: string; service: string; productionUrl: string; previewUrl: string } }) {
+export function AppEditForm({ app }: { app: { id: string; name: string; repository: string; service: string; productionUrl: string; previewUrl: string; description: string } }) {
   const [name, setName] = useState(app.name);
+  const [description, setDescription] = useState(app.description);
   const [repository, setRepository] = useState(app.repository);
   const [service, setService] = useState(app.service);
   const [productionUrl, setProductionUrl] = useState(app.productionUrl);
   const [previewUrl, setPreviewUrl] = useState(app.previewUrl);
   const { message, update } = useUpdate("/api/apps");
   return (
-    <form onSubmit={(event) => { event.preventDefault(); update({ id: app.id, name, repository, service, productionUrl, previewUrl }); }} className="mt-5 grid gap-2 rounded-lg border border-[var(--line)] bg-[var(--card)] p-4">
+    <form onSubmit={(event) => { event.preventDefault(); update({ id: app.id, name, repository, service, productionUrl, previewUrl, description }); }} className="mt-5 grid gap-2 rounded-lg border border-[var(--line)] bg-[var(--card)] p-4">
       <div className="font-bold">編集</div>
       <input className="rounded-md border border-[var(--line)] bg-white px-3 py-2" value={name} onChange={(event) => setName(event.target.value)} required />
+      <textarea className="min-h-20 rounded-md border border-[var(--line)] bg-white px-3 py-2" value={description} onChange={(event) => setDescription(event.target.value)} placeholder="説明 例: 何をするためのアプリか" />
       <input className="rounded-md border border-[var(--line)] bg-white px-3 py-2" value={repository} onChange={(event) => setRepository(event.target.value)} placeholder="Repository URL" />
       <input className="rounded-md border border-[var(--line)] bg-white px-3 py-2" value={service} onChange={(event) => setService(event.target.value)} placeholder="Service" />
       <input className="rounded-md border border-[var(--line)] bg-white px-3 py-2" value={productionUrl} onChange={(event) => setProductionUrl(event.target.value)} placeholder="Production URL" />
