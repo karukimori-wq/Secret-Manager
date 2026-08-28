@@ -10,6 +10,7 @@ export const demoData: CatalogData = {
       service: "Vercel / Google Sheets / Google Drive",
       productionUrl: "https://secret-manager-xvor.vercel.app",
       previewUrl: "https://secret-manager-xvor-q6xifijz7-junichi-t-j11-s-projects.vercel.app",
+      description: "Secret、Repository、Deployment、設定画面へのリンクをまとめる台帳アプリ。",
     },
     {
       id: "app-external-intelligence-system",
@@ -18,6 +19,7 @@ export const demoData: CatalogData = {
       service: "Vercel / Supabase",
       productionUrl: "https://external-intelligence-system-1rtht1iff-junichi-t-j11-s-projects.vercel.app",
       previewUrl: "",
+      description: "開発中の知識、進捗、判断材料を集約し、次の開発で再利用するための外部知能。",
     },
     {
       id: "app-growth-engine",
@@ -26,6 +28,7 @@ export const demoData: CatalogData = {
       service: "Vercel / Supabase",
       productionUrl: "https://growth-engine-ruby-nine.vercel.app",
       previewUrl: "",
+      description: "集客、予約、販売導線を管理し、ビジネス側の成長施策を動かすアプリ。",
     },
     {
       id: "app-velvet",
@@ -34,6 +37,7 @@ export const demoData: CatalogData = {
       service: "Cloudflare Workers / D1",
       productionUrl: "https://velvet.karukimori.workers.dev",
       previewUrl: "",
+      description: "占い師や専門家の記憶、顧客理解、接客文脈を扱うプロフェッショナル支援アプリ。",
     },
     {
       id: "app-numeria-studio",
@@ -42,6 +46,7 @@ export const demoData: CatalogData = {
       service: "Cloudflare Workers / D1 / ChatGPT Sites",
       productionUrl: "https://numeria-studio.illusionddt.chatgpt.site",
       previewUrl: "",
+      description: "数秘鑑定セッションとレポート作成を行う鑑定スタジオ。",
     },
     {
       id: "app-sns-planner",
@@ -50,6 +55,7 @@ export const demoData: CatalogData = {
       service: "ChatGPT Sites / GitHub",
       productionUrl: "https://sns-planner.illusionddt.chatgpt.site",
       previewUrl: "",
+      description: "SNS投稿、ハッシュタグ、リール、ストーリー案を作成し、投稿計画を整理するアプリ。",
     },
     {
       id: "app-communication-planner",
@@ -58,6 +64,7 @@ export const demoData: CatalogData = {
       service: "Cloudflare / GitHub",
       productionUrl: "",
       previewUrl: "",
+      description: "1対1の会話、返信案、安全確認を管理し、別人への誤送信や文脈混同を防ぐアプリ。",
     },
     {
       id: "app-ai-platform-core",
@@ -66,6 +73,7 @@ export const demoData: CatalogData = {
       service: "Cloudflare Workers / D1",
       productionUrl: "https://ai-platform-core.karukimori.workers.dev",
       previewUrl: "https://ai-platform-core-preview.illusionddt.chatgpt.site",
+      description: "AI実行、プロンプト、利用量、イベント記録を共通化するAI基盤アプリ。",
     },
     {
       id: "app-platform-admin",
@@ -74,6 +82,7 @@ export const demoData: CatalogData = {
       service: "Cloudflare Workers / D1",
       productionUrl: "https://platform-admin.karukimori.workers.dev",
       previewUrl: "https://platform-admin-preview.illusionddt.chatgpt.site",
+      description: "複数アプリの稼働状況、契約状態、接続確認を横断して見る管理アプリ。",
     },
     {
       id: "app-feedback-hub",
@@ -82,6 +91,7 @@ export const demoData: CatalogData = {
       service: "Cloudflare / GitHub",
       productionUrl: "",
       previewUrl: "",
+      description: "ユーザーの質問、不具合、改善要望を集め、AIが開発しやすい形へ整理するアプリ。",
     },
   ],
   secrets: [
