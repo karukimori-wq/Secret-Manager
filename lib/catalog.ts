@@ -44,7 +44,7 @@ export function searchCatalog(data: CatalogData, query: string): SearchResult[] 
       kind: "app" as const,
       id: app.id,
       title: app.name,
-      description: [app.repository, app.productionUrl, app.previewUrl, app.service].filter(Boolean).join(" / "),
+      description: [app.description, app.repository, app.productionUrl, app.previewUrl, app.service].filter(Boolean).join(" / "),
       href: `/apps/${app.id}`,
     })),
     ...data.secrets.map((secret: SecretRecord) => ({
