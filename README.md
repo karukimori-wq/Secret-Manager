@@ -25,7 +25,7 @@ Only these five sheets are used:
 
 | Sheet | Columns |
 | --- | --- |
-| Apps | id, name, repository, service, productionUrl, previewUrl |
+| Apps | id, name, repository, service, productionUrl, previewUrl, description |
 | Secrets | id, name, description, owner, storage |
 | Services | id, name, description |
 | Relations | from, relation, to |
