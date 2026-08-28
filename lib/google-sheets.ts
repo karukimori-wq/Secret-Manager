@@ -3,7 +3,7 @@ import type { AppRecord, CatalogData, LinkRecord, RelationRecord, SecretRecord, 
 import { google } from "googleapis";
 
 const SHEET_HEADERS = {
-  Apps: ["id", "name", "repository", "service", "productionUrl", "previewUrl"],
+  Apps: ["id", "name", "repository", "service", "productionUrl", "previewUrl", "description"],
   Secrets: ["id", "name", "description", "owner", "storage"],
   Services: ["id", "name", "description"],
   Relations: ["from", "relation", "to"],
