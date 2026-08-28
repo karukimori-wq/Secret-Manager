@@ -15,6 +15,7 @@ export default async function AppsPage() {
         <Grid>
           {data.apps.map((app) => (
             <Card key={app.id} href={`/apps/${app.id}`} icon={icons.app} title={app.name}>
+              {app.description ? <p className="font-medium text-[var(--ink)]">{app.description}</p> : null}
               <div>{icons.repository} {app.repository || "Repository未設定"}</div>
               <div>{icons.deployment} {app.productionUrl || "Production未設定"}</div>
               <div>{icons.service} {app.service || "Service未設定"}</div>
