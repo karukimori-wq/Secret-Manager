@@ -26,7 +26,7 @@ export const demoData: CatalogData = {
       name: "Growth Engine",
       repository: "https://github.com/karukimori-wq/Growth-Engine",
       service: "Vercel / Supabase",
-      productionUrl: "https://growth-engine-ruby-nine.vercel.app",
+      productionUrl: "https://growth-engine.karukimori.workers.dev",
       previewUrl: "",
       description: "集客、予約、販売導線を管理し、ビジネス側の成長施策を動かすアプリ。",
     },
