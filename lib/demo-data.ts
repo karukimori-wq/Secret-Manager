@@ -49,6 +49,15 @@ export const demoData: CatalogData = {
       description: "数秘鑑定セッションとレポート作成を行う鑑定スタジオ。",
     },
     {
+      id: "app-numeria-studio-site",
+      name: "Numeria Studio Site",
+      repository: "https://github.com/karukimori-wq/numeria-studio-site",
+      service: "GitHub / ChatGPT Sites",
+      productionUrl: "",
+      previewUrl: "",
+      description: "Numeria Studioの公開サイト用リポジトリ。アプリ本体とは分けて、リリースページや導線を管理する。",
+    },
+    {
       id: "app-sns-planner",
       name: "SNS Planner",
       repository: "https://github.com/karukimori-wq/SNS-planner",
@@ -172,6 +181,9 @@ export const demoData: CatalogData = {
     { from: "app-numeria-studio", relation: "uses", to: "service-github" },
     { from: "app-numeria-studio", relation: "uses", to: "service-cloudflare" },
     { from: "app-numeria-studio", relation: "uses", to: "service-chatgpt-sites" },
+    { from: "app-numeria-studio-site", relation: "uses", to: "service-github" },
+    { from: "app-numeria-studio-site", relation: "uses", to: "service-chatgpt-sites" },
+    { from: "app-numeria-studio-site", relation: "site_for", to: "app-numeria-studio" },
     { from: "app-sns-planner", relation: "uses", to: "service-github" },
     { from: "app-sns-planner", relation: "uses", to: "service-chatgpt-sites" },
     { from: "app-communication-planner", relation: "uses", to: "service-github" },
@@ -196,6 +208,12 @@ export const demoData: CatalogData = {
       parentId: "app-secret-manager",
       title: "GitHub Repository",
       url: "https://github.com/karukimori-wq/Secret-Manager",
+    },
+    {
+      parentType: "app",
+      parentId: "app-numeria-studio-site",
+      title: "GitHub Repository",
+      url: "https://github.com/karukimori-wq/numeria-studio-site",
     },
     {
       parentType: "service",
